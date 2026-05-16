@@ -5,6 +5,16 @@ Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [1.1.0] - 2026-05-16
+
+### Adicionado
+- Plano de implementação gradual em `docs/roadmap/implementation-plan.md`.
+- Módulo 02 real com teoria de OOP e Clean Code.
+- Exemplos Java de `Aluno`, `Disciplina` e `ExemploBoletim`.
+- Mini projeto `boletim-escolar` com classes modulares e fluxo documentado.
+- Testes sem framework para validar regras do boletim escolar.
+- Documentação ampliada dos scripts de setup e validação.
+
 ## [1.0.0] - 2026-05-16
 
 ### Adicionado
