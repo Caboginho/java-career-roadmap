@@ -1,0 +1,98 @@
+name: Validate Structure
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  structure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check required files
+        run: |
+          echo "Checking for required files..."
+          
+          # Root files
+          test -f README.md || (echo "ERROR: Missing README.md" && exit 1)
+          test -f ROADMAP.md || (echo "ERROR: Missing ROADMAP.md" && exit 1)
+          test -f INDEX.md || (echo "ERROR: Missing INDEX.md" && exit 1)
+          test -f LICENSE || (echo "ERROR: Missing LICENSE" && exit 1)
+          test -f .gitignore || (echo "ERROR: Missing .gitignore" && exit 1)
+          test -f CODE_OF_CONDUCT.md || (echo "ERROR: Missing CODE_OF_CONDUCT.md" && exit 1)
+          test -f SECURITY.md || (echo "ERROR: Missing SECURITY.md" && exit 1)
+          test -f CHANGELOG.md || (echo "ERROR: Missing CHANGELOG.md" && exit 1)
+          test -f COMMITS_CONVENTION.md || (echo "ERROR: Missing COMMITS_CONVENTION.md" && exit 1)
+          
+          echo "✅ All required root files present"
+
+      - name: Check module structure
+        run: |
+          echo "Checking module structure..."
+          
+          modules=(
+            "01-java-fundamentals"
+            "02-oop-and-clean-code"
+            "03-data-structures"
+            "04-java-moderno"
+            "05-databases"
+            "06-spring-boot"
+            "07-security"
+            "08-jpa-hibernate"
+            "09-testing"
+            "10-react-frontend"
+            "11-microservices"
+            "12-cloud"
+            "13-system-design"
+            "14-design-patterns"
+          )
+          
+          for module in "${modules[@]}"; do
+            if [ -d "$module" ]; then
+              echo "✅ $module exists"
+              test -f "$module/README.md" && echo "  ✓ README.md" || echo "  ✗ Missing README.md"
+              test -d "$module/01-teoria" && echo "  ✓ 01-teoria/" || echo "  ✗ Missing 01-teoria/"
+              test -d "$module/02-exemplos" && echo "  ✓ 02-exemplos/" || echo "  ✗ Missing 02-exemplos/"
+              test -d "$module/03-exercicios" && echo "  ✓ 03-exercicios/" || echo "  ✗ Missing 03-exercicios/"
+              test -d "$module/04-mini-projetos" && echo "  ✓ 04-mini-projetos/" || echo "  ✗ Missing 04-mini-projetos/"
+              test -d "$module/05-diagramas" && echo "  ✓ 05-diagramas/" || echo "  ✗ Missing 05-diagramas/"
+              test -d "$module/06-testes" && echo "  ✓ 06-testes/" || echo "  ✗ Missing 06-testes/"
+            fi
+          done
+
+      - name: Check projects structure
+        run: |
+          echo "Checking projects structure..."
+          
+          projects=(
+            "projects/01-erp-lite"
+            "projects/02-ecommerce"
+            "projects/03-plataforma-educacional"
+            "projects/04-sistema-financeiro"
+            "projects/05-chat-realtime"
+            "projects/06-saas-multitenant"
+            "projects/07-api-gateway-ecosystem"
+            "projects/08-sistema-filas"
+            "projects/09-observabilidade"
+            "projects/10-sistema-distribuido"
+          )
+          
+          for project in "${projects[@]}"; do
+            if [ -d "$project" ]; then
+              echo "✅ $project exists"
+            else
+              echo "⚠️  $project not yet created"
+            fi
+          done
+
+      - name: Check support folders
+        run: |
+          echo "Checking support folders..."
+          
+          test -d "notes" && echo "✅ notes/" || mkdir -p notes
+          test -d "diagrams" && echo "✅ diagrams/" || mkdir -p diagrams
+          test -d "certificates" && echo "✅ certificates/" || mkdir -p certificates
+          test -d "portfolio" && echo "✅ portfolio/" || mkdir -p portfolio

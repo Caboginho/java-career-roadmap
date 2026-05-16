@@ -1,0 +1,157 @@
+# Java
+*.class
+*.jar
+*.war
+*.nar
+*.zip
+*.tar.gz
+*.rar
+*.exe
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+gradle-app.setting
+.gradletasknamecache
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+.factorypath
+.c9/
+*.sublime-workspace
+
+# Node / React
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+dist/
+build/
+.next/
+.nuxt/
+coverage/
+
+# Environment
+.env
+.env.local
+.env.*.local
+.env.prod
+.env.test
+.env.development
+.env.staging
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+*.pid
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+.docker/
+docker-data/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Application specific
+temp/
+tmp/
+cache/
+uploads/
+downloads/
+.auth/
+.config/
+.local/
+
+# Test coverage
+coverage/
+.nyc_output/
+htmlcov/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# IDEs
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.vscode/
+.idea/
+IntelliJ/
+
+# Build outputs
+dist/
+build/
+target/
+out/
+
+# Keep .gitkeep files
+!.gitkeep
+
+# Misc
+*.orig
+*.rej
+.merge_file*
+
+# AWS
+.aws/
+.credentials
+
+# GCP
+.gcp/
+
+# Azure
+.azure/

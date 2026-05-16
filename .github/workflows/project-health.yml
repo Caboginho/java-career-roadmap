@@ -1,0 +1,82 @@
+name: Project Health
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  structure:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate required repository files
+        shell: bash
+        run: |
+          required_files=(
+            README.md
+            ROADMAP.md
+            INDEX.md
+            MODULO_TEMPLATE.md
+            LICENSE
+            CODE_OF_CONDUCT.md
+            CONTRIBUTING.md
+            SECURITY.md
+            CHANGELOG.md
+            .gitignore
+          )
+
+          for file in "${required_files[@]}"; do
+            test -f "$file" || { echo "Missing required file: $file"; exit 1; }
+          done
+
+      - name: Validate module structure
+        shell: bash
+        run: |
+          modules=(
+            01-java-fundamentals
+            02-oop-and-clean-code
+            03-data-structures
+            04-java-moderno
+            05-databases
+            06-spring-boot
+            07-security
+            08-jpa-hibernate
+            09-testing
+            10-react-frontend
+            11-microservices
+            12-cloud
+            13-system-design
+            14-design-patterns
+          )
+
+          for module in "${modules[@]}"; do
+            test -d "$module" || { echo "Missing module: $module"; exit 1; }
+          done
+
+      - name: Validate project structure
+        shell: bash
+        run: |
+          projects=(
+            projects/01-erp-lite
+            projects/02-ecommerce
+            projects/03-plataforma-educacional
+            projects/04-sistema-financeiro
+            projects/05-chat-realtime
+            projects/06-saas-multitenant
+            projects/07-api-gateway-ecosystem
+            projects/08-sistema-filas
+            projects/09-observabilidade
+            projects/10-sistema-distribuido
+          )
+
+          for project in "${projects[@]}"; do
+            test -d "$project/backend" || echo "Notice: $project/backend not created yet"
+            test -d "$project/frontend" || echo "Notice: $project/frontend not created yet"
+            test -d "$project/docs" || { echo "Missing docs in $project"; exit 1; }
+            test -d "$project/docker" || { echo "Missing docker in $project"; exit 1; }
+          done

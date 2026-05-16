@@ -1,0 +1,83 @@
+name: Java CI
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - "**/pom.xml"
+      - "**/build.gradle"
+      - "**/build.gradle.kts"
+      - "**/*.java"
+      - ".github/workflows/java-ci.yml"
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - "**/pom.xml"
+      - "**/build.gradle"
+      - "**/build.gradle.kts"
+      - "**/*.java"
+
+jobs:
+  maven:
+    name: Maven projects
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+
+      - name: Build Maven modules
+        shell: bash
+        run: |
+          mapfile -t poms < <(find . -name pom.xml -not -path "*/target/*")
+          if [ "${#poms[@]}" -eq 0 ]; then
+            echo "No Maven projects found."
+            exit 0
+          fi
+
+          for pom in "${poms[@]}"; do
+            module_dir="$(dirname "$pom")"
+            echo "Building $module_dir"
+            (cd "$module_dir" && mvn -B verify)
+          done
+
+  gradle:
+    name: Gradle projects
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: gradle
+
+      - name: Build Gradle modules
+        shell: bash
+        run: |
+          mapfile -t builds < <(find . \( -name build.gradle -o -name build.gradle.kts \) -not -path "*/build/*")
+          if [ "${#builds[@]}" -eq 0 ]; then
+            echo "No Gradle projects found."
+            exit 0
+          fi
+
+          for build in "${builds[@]}"; do
+            module_dir="$(dirname "$build")"
+            echo "Building $module_dir"
+            if [ -f "$module_dir/gradlew" ]; then
+              (cd "$module_dir" && ./gradlew test)
+            else
+              (cd "$module_dir" && gradle test)
+            fi
+          done

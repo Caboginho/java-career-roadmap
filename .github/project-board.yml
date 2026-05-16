@@ -1,0 +1,55 @@
+name: Java Career Roadmap - Development
+description: Board para acompanhar estudos, modulos, exercicios, projetos e melhorias do roadmap.
+columns:
+  - Backlog
+  - Todo
+  - In Progress
+  - Review
+  - Testing
+  - Done
+fields:
+  type:
+    - feat
+    - fix
+    - docs
+    - refactor
+    - test
+    - chore
+  level:
+    - beginner
+    - intermediate
+    - advanced
+  area:
+    - backend
+    - frontend
+    - database
+    - devops
+    - architecture
+  module:
+    - 01-java-fundamentals
+    - 02-oop-and-clean-code
+    - 03-data-structures
+    - 04-java-moderno
+    - 05-databases
+    - 06-spring-boot
+    - 07-security
+    - 08-jpa-hibernate
+    - 09-testing
+    - 10-react-frontend
+    - 11-microservices
+    - 12-cloud
+    - 13-system-design
+    - 14-design-patterns
+seed_items:
+  - title: "Configurar estrutura profissional do repositorio"
+    column: Done
+    labels: [docs, chore]
+  - title: "Concluir modulo 01 - Java Fundamentals"
+    column: In Progress
+    labels: [feat, module, beginner]
+  - title: "Implementar primeiro projeto ERP Lite"
+    column: Backlog
+    labels: [project, backend, frontend]
+  - title: "Adicionar testes automatizados aos exemplos"
+    column: Todo
+    labels: [test, module]

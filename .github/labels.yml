@@ -1,0 +1,70 @@
+labels:
+  - name: feat
+    color: "0e8a16"
+    description: Nova funcionalidade
+  - name: fix
+    color: "d73a4a"
+    description: Correcao de bug
+  - name: docs
+    color: "0075ca"
+    description: Documentacao
+  - name: refactor
+    color: "5319e7"
+    description: Refatoracao sem mudanca de comportamento
+  - name: test
+    color: "fbca04"
+    description: Testes automatizados
+  - name: chore
+    color: "cfd3d7"
+    description: Manutencao do repositorio
+  - name: beginner
+    color: "c2e0c6"
+    description: Nivel iniciante
+  - name: intermediate
+    color: "bfdadc"
+    description: Nivel intermediario
+  - name: advanced
+    color: "f9d0c4"
+    description: Nivel avancado
+  - name: backend
+    color: "1d76db"
+    description: Backend Java/Spring
+  - name: frontend
+    color: "61dafb"
+    description: Frontend React
+  - name: database
+    color: "5319e7"
+    description: Banco de dados
+  - name: devops
+    color: "0052cc"
+    description: Infra, Docker, CI/CD
+  - name: architecture
+    color: "b60205"
+    description: Arquitetura e system design
+  - name: question
+    color: "d876e3"
+    description: Duvida sobre exercicio ou projeto
+  - name: module
+    color: "5319e7"
+    description: Conteudo relacionado a modulo de estudo
+  - name: project
+    color: "006b75"
+    description: Conteudo relacionado a projeto de portfolio
+  - name: exercise
+    color: "fef2c0"
+    description: Exercicio, desafio ou solucao de pratica
+  - name: ci
+    color: "1d76db"
+    description: Pipelines, validacoes e automacoes
+  - name: security
+    color: "ee0701"
+    description: Seguranca, vulnerabilidades e boas praticas
+  - name: good first issue
+    color: "7057ff"
+    description: Boa primeira contribuicao
+  - name: help wanted
+    color: "008672"
+    description: Ajuda externa bem-vinda
+  - name: blocked
+    color: "b60205"
+    description: Bloqueado por dependencia ou decisao
