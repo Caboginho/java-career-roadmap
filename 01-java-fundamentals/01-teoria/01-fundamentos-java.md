@@ -56,6 +56,12 @@ Use loops para repetir operações.
 for (int i = 1; i <= 10; i++) {
     System.out.println(i);
 }
+do  {
+        int i = 10
+        System.out.println(i);
+        i=i-1;
+    } while ( i > 0 >);
+
 ```
 
 ## Métodos
